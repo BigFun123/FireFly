@@ -1,29 +1,66 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chaser : MonoBehaviour
+public class Chaser : Agent
 {
-    public Runner Target;
-    public float Speed = 0.9f;
+    public Runner TargetObject;
+    public Vector3 RandomOffset;
+    public float VolumeCoefficient = 0.1f; // ratio of distance to volume
+    AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
-        
+        CalculateOffset();
+        SetupSound();
+    }
+
+    void SetupSound()
+    {
+        sound = gameObject.GetComponent<AudioSource>();
+        if (sound != null)
+        {
+            sound.Play();
+            sound.loop = true;
+        }
+    }
+
+    /*
+     * Prevent chasers all ending up in the same place by creating a unique offset for each one
+     * */
+    void CalculateOffset()
+    {
+        RandomOffset = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        //Vector3 TargetVector = CalculateTargetVector();        
-        transform.position = Vector3.Lerp(transform.position, Target.transform.position, Speed * Time.deltaTime);
+        TargetPosition = TargetObject.transform.position + RandomOffset;
+        //todo: choose better sprites for each angle
+        UpdateSound();
+        base.Update();
     }
 
     Vector3 CalculateTargetVector()
     {
-        Vector3 v = transform.position - Target.transform.position;
+        Vector3 v = transform.position - TargetObject.transform.position;
         v.Normalize();
         Debug.Log(v);
         return v;
+    }
+
+   
+
+    void UpdateSound()
+    {
+        if (sound != null)
+        {
+            Debug.Log(DistanceToTarget() * VolumeCoefficient);
+            float TargetVolume = 1 - DistanceToTarget() * VolumeCoefficient;
+            sound.volume = Mathf.Clamp(TargetVolume, 0, 1);
+            
+        }
     }
 }

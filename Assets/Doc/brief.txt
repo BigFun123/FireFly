@@ -1,0 +1,26 @@
+Brief
+
+Create a 2D game where any character that you come up with (can make it fun) have to run away on the screen via mouse movement from the other game characters.
+
+You can add other game objects as you wish or change any dynamics of the game to make it more fun or just for your own creative mind :)
+
+Rules
+
+• Use Unity.
+• C# code only.
+• List any 3rd party packages or libraries that you use like a library for doing collision detection.
+• Create in Photoshop, Illustrator, Sketch all your 2D game characters. Provide the files as part of your deliverable.
+• Should run on Mac OSX as a desktop app or Android or on Windows. We are flexible.
+• Provide binary of platform.
+• The project should be saved in a private repo on (Github, Gitlab, Bitbucket, you pick)
+• Bonus: Add sound.
+
+Notes
+
+• Keep it simple
+• Keep it DRY
+• Follow good design patterns
+• Follow good development practices
+• We aren’t looking for flashy graphics. Plain 2D only even if it's black and white.
+• We are looking for solid development skills
+• Worry less about UI and more about services and clean maintainable code
