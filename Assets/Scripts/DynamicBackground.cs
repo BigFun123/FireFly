@@ -20,6 +20,6 @@ public class DynamicBackground : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         Vector3 WorldPos = Camera.main.ScreenToWorldPoint(mousePos); // Position of the cursor in the world
-        transform.position = Vector3.Lerp(transform.position, new Vector3(-WorldPos.x, WorldPos.y, WorldPos.z), Time.deltaTime * Amount);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(-WorldPos.x, -WorldPos.y, WorldPos.z), Time.deltaTime * Amount);
     }
 }
