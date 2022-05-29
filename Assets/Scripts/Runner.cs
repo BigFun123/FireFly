@@ -9,15 +9,12 @@ using UnityEngine;
  */
 public class Runner : Agent
 {
-    [SerializeField] SpriteRenderer spriteRenderer; 
+    
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        if(spriteRenderer == null)
-        {
-            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        }
+        base.Start();
     }
 
     // Update is called once per frame
@@ -37,14 +34,6 @@ public class Runner : Agent
         mousePos.z = Camera.main.nearClipPlane;
         Vector3 WorldPos = Camera.main.ScreenToWorldPoint(mousePos); // Position of the cursor in the world
         TargetPosition = new Vector3(WorldPos.x, WorldPos.y, 0);
-    }
-
-    /**
-     * Adjusts scale, orientation to look at the cursor
-     * */
-    void LookAtCursor()
-    {
-        spriteRenderer.flipX = transform.position.x < TargetPosition.x;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

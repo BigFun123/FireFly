@@ -10,8 +10,9 @@ public class Chaser : Agent
     public float VolumeCoefficient = 0.1f; // ratio of distance to volume
     AudioSource sound;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         CalculateOffset();
         SetupSound();
     }
@@ -40,19 +41,10 @@ public class Chaser : Agent
         TargetPosition = TargetObject.transform.position + RandomOffset;
         //todo: choose better sprites for each angle
         UpdateSound();
+        LookAtCursor();
         base.Update();
     }
-
-    /**
-     * TODO: Orient sprite to target
-     * */
-    Vector3 CalculateTargetVector()
-    {
-        Vector3 v = transform.position - TargetObject.transform.position;
-        v.Normalize();        
-        return v;
-    }
-
+  
     /**
      * Increase volume as chaser approaches target to create some tension
      * */

@@ -9,13 +9,17 @@ namespace Assets.Scripts
      */
     public class Agent : MonoBehaviour
     {
+        [SerializeField] SpriteRenderer spriteRenderer;
 
         public Vector3 TargetPosition = Vector3.zero;
         public float Speed = 1f;
         // Use this for initialization
-        void Start()
+        protected virtual void Start()
         {
-            //
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            }
         }
 
         // Update is called once per frame
@@ -38,6 +42,14 @@ namespace Assets.Scripts
         protected float DistanceToTarget()
         {
             return Vector3.Distance(transform.position, TargetPosition);
+        }
+
+        /**
+          * Adjusts scale, orientation to look at the cursor
+          * */
+        protected void LookAtCursor()
+        {
+            spriteRenderer.flipX = transform.position.x < TargetPosition.x;
         }
     }
 }
