@@ -32,6 +32,7 @@ public class GameService : MonoBehaviour
     {
         GameObject newChaser = Instantiate(ChaserTemplate);
         Chaser cs = newChaser.gameObject.GetComponent<Chaser>();
+        newChaser.transform.position = new Vector3(0, -6, 0);
         cs.TargetObject = Protagonist;
         cs.Speed = 0.1f + Random.value;
     }
