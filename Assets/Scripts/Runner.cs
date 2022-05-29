@@ -35,7 +35,8 @@ public class Runner : Agent
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
-        TargetPosition = Camera.main.ScreenToWorldPoint(mousePos); // Position of the cursor in the world
+        Vector3 WorldPos = Camera.main.ScreenToWorldPoint(mousePos); // Position of the cursor in the world
+        TargetPosition = new Vector3(WorldPos.x, WorldPos.y, 0);
     }
 
     /**
@@ -44,5 +45,14 @@ public class Runner : Agent
     void LookAtCursor()
     {
         spriteRenderer.flipX = transform.position.x < TargetPosition.x;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision);
+        if (collision.gameObject.tag == "Food")
+        {
+            //collision.gameObject;
+        };
     }
 }

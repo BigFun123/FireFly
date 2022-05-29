@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * A background that moves inversely to the mouse, creating the illusion of a bigger playing field
+ * */
 public class DynamicBackground : MonoBehaviour
 {
     // Start is called before the first frame update

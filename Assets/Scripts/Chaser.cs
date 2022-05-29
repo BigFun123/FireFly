@@ -43,24 +43,26 @@ public class Chaser : Agent
         base.Update();
     }
 
+    /**
+     * TODO: Orient sprite to target
+     * */
     Vector3 CalculateTargetVector()
     {
         Vector3 v = transform.position - TargetObject.transform.position;
-        v.Normalize();
-        Debug.Log(v);
+        v.Normalize();        
         return v;
     }
 
-   
-
+    /**
+     * Increase volume as chaser approaches target to create some tension
+     * */
     void UpdateSound()
     {
         if (sound != null)
         {
-            Debug.Log(DistanceToTarget() * VolumeCoefficient);
+            // Debug.Log(DistanceToTarget() * VolumeCoefficient);
             float TargetVolume = 1 - DistanceToTarget() * VolumeCoefficient;
-            sound.volume = Mathf.Clamp(TargetVolume, 0, 1);
-            
+            sound.volume = Mathf.Clamp(TargetVolume, 0, 1);            
         }
     }
 }
