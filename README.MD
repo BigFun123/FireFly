@@ -4,7 +4,7 @@
 ## Packages Used
 ### TextMeshPro (comes with Unity)
 
-## A simple game to illustrate injertiance, polymorphism, and the factory pattern.
+## A simple game to illustrate inheritance, polymorphism, and the factory pattern.
 ### Fly the firefly to collect food, while avoiding moths
 
 ## Rules:
