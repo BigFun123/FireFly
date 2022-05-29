@@ -51,8 +51,7 @@ public class Chaser : Agent
     void UpdateSound()
     {
         if (sound != null)
-        {
-            // Debug.Log(DistanceToTarget() * VolumeCoefficient);
+        {   
             float TargetVolume = 1 - DistanceToTarget() * VolumeCoefficient;
             sound.volume = Mathf.Clamp(TargetVolume, 0, 1);            
         }

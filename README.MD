@@ -10,6 +10,6 @@
 ## Rules:
 ### When the FireFly eats a spark, he gains 1 glow
 ### When the FireFly hits a moth, the moth disappears but he loses 1 glow
-### The game is to figure out how to get maximum glow
+### The game is to figure out how to get maximum glow (or is it?)
 
 ![FireFly ScreenShot](https://github.com/BigFun123/FireFly/blob/master/Assets/Doc/Screenshot%20(2).png "FireFly")

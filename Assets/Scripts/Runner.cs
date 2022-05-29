@@ -50,4 +50,14 @@ public class Runner : Agent
             Destroy(collision.gameObject);
         };
     }
+
+    public void SetScoreText(float score)
+    {
+        Transform tr = gameObject.transform.Find("Glow");
+        if (tr != null)
+        {
+            float TScore = Mathf.Max(0, score);
+            tr.localScale = new Vector3(TScore, TScore, 1);
+        }
+    }
 }
