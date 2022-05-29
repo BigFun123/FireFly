@@ -49,10 +49,16 @@ public class Runner : Agent
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision);
+        //Debug.Log(collision);
         if (collision.gameObject.tag == "Food")
         {
-            //collision.gameObject;
+            gameObject.SendMessageUpwards("AteFood", 1f, SendMessageOptions.DontRequireReceiver);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Moth")
+        {
+            gameObject.SendMessageUpwards("HitMoth", 1f, SendMessageOptions.DontRequireReceiver);
+            Destroy(collision.gameObject);
         };
     }
 }
