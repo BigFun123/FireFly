@@ -9,11 +9,15 @@ using UnityEngine;
  * Will follow the mouse, and check collisions
  */
 public class Runner : Agent
-{    
+{
     // Start is called before the first frame update
+    AudioSource SoundSource;
+    public AudioClip EatSound;
+    public AudioClip MothSound;
     protected override void Start()
     {
         base.Start();
+        SetupSound();
     }
 
     // Update is called once per frame
@@ -22,6 +26,27 @@ public class Runner : Agent
         MoveToCursor();
         LookAtCursor();
         base.Update();
+    }
+
+    void SetupSound()
+    {
+        SoundSource = gameObject.GetComponent<AudioSource>();
+    }
+
+    void PlayEatSound()
+    {
+        if (SoundSource != null && EatSound != null)
+        {
+            SoundSource.PlayOneShot(EatSound, 0.5f);
+        }
+    }
+
+    void PlayMothHitSound()
+    {
+        if (SoundSource != null && MothSound != null)
+        {
+            SoundSource.PlayOneShot(MothSound, 0.5f);
+        }
     }
 
     /*
@@ -40,13 +65,15 @@ public class Runner : Agent
         //Debug.Log(collision);
         if (collision.gameObject.tag == "Food")
         {
+            PlayEatSound();
             gameObject.SendMessageUpwards("AteFood", 1f, SendMessageOptions.DontRequireReceiver);
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject);            
         }
         else if (collision.gameObject.tag == "Moth")
         {
+            PlayMothHitSound();
             gameObject.SendMessageUpwards("HitMoth", 1f, SendMessageOptions.DontRequireReceiver);
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject);            
         };
     }
 

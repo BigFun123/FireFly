@@ -8,6 +8,7 @@ using UnityEngine;
 public class DynamicBackground : MonoBehaviour
 {
     public float Amount = 0.1f;
+    public Vector3 Bounds = new Vector3(2, 1, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,9 @@ public class DynamicBackground : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         Vector3 WorldPos = Camera.main.ScreenToWorldPoint(mousePos); // Position of the cursor in the world
-        transform.position = Vector3.Lerp(transform.position, new Vector3(-WorldPos.x, -WorldPos.y, WorldPos.z), Time.deltaTime * Amount);
+        WorldPos.x = Mathf.Clamp(WorldPos.x, -Bounds.x, Bounds.x);
+        WorldPos.y = Mathf.Clamp(WorldPos.y, -Bounds.y, Bounds.y);
+
+        transform.position = Vector3.Lerp(transform.position, new Vector3(-WorldPos.x, -WorldPos.y, 0), Time.deltaTime * Amount);
     }
 }
