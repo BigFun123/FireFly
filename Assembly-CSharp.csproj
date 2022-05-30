@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Runner.cs" />
     <Compile Include="Assets\Scripts\GameService.cs" />
     <Compile Include="Assets\Scripts\ScoreHandler.cs" />
+    <Compile Include="Assets\Scripts\StartGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Doc\brief.txt" />
