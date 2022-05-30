@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/**
- * The sprite behaviour for running away 
+/*
+ * The sprite behaviour for our hero
+ * Will follow the mouse, and check collisions
  */
 public class Runner : Agent
-{
-    
-
+{    
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -25,9 +24,9 @@ public class Runner : Agent
         base.Update();
     }
 
-    /**
+    /*
      * Moves this object toward the cursor
-     * */
+     */
     void MoveToCursor()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -51,6 +50,9 @@ public class Runner : Agent
         };
     }
 
+    /*
+     * We'll use the score broadcast to increase our glow size
+     */
     public void SetScoreText(float score)
     {
         Transform tr = gameObject.transform.Find("Glow");

@@ -5,13 +5,18 @@ using UnityEngine;
 /**
  * FireFly is a Kafka-esque game about chasing food and running from moths
  * Our hero-protagonist (Kafka) must eat light to survive, but every time he eats, a jealous moth appears to taunt him
- * */
+ * The game has no end other than complete entropy or returning to 0 Glow
+ * 
+ * Factory pattern to instantiate moths and food for Kafka
+ * Mediator to handle food consumption and calculate score (Glow) 
+ * 
+ */
 
 public class GameService : MonoBehaviour
 {
     public float GlowScore = 1f;
     // 1 = normal, 10 = very difficult    
-    public float Difficulty = 1f;        
+    public float Difficulty = 1f;
     public float DifficultyStep = 0.1f;
     public GameObject ChaserTemplate;
     public GameObject FoodTemplate;
@@ -37,12 +42,18 @@ public class GameService : MonoBehaviour
         }
     }
 
+    /*
+     * Create some food for our hero to eat
+     */
     void SpawnFood()
     {
         GameObject newFood = Instantiate(FoodTemplate);        
         newFood.transform.position = new Vector3(Random.Range(-WorldSize.x, WorldSize.x), Random.Range(-WorldSize.y, WorldSize.y), 0);        
     }
 
+    /*
+     * Create a new chaser with random properties     
+     */
     void SpawnChaser()
     {
         GameObject newChaser = Instantiate(ChaserTemplate);
@@ -53,9 +64,9 @@ public class GameService : MonoBehaviour
         cs.Speed = 0.1f + Random.value;
     }
 
-    /**
+    /*
      * Called by an object in the Game when it eats food
-     * */
+     */
     public void AteFood(float amt)
     {   
         Difficulty += DifficultyStep;
@@ -63,12 +74,18 @@ public class GameService : MonoBehaviour
         SetScore(GlowScore);
     }
 
+    /*
+     * Protagonist hit a moth
+     */
     public void HitMoth(float amt)
     {
         GlowScore -= amt;
         SetScore(GlowScore);
     }
 
+    /*
+    * Tell the world the score
+    */
     void SetScore(float score)
     {
         gameObject.BroadcastMessage("SetScoreText", score);

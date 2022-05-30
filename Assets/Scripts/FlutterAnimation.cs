@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
+    /*
+     * Simulate some kind of moth-like behaviour
+     */
     public class FlutterAnimation : MonoBehaviour
     {
         public float Strength = 0.01f;

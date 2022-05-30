@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+* Chaser is an Agent that chases another agent
+* Multiple Chasers will create an emergent flocking behaviour
+* As the Chaser nears the target its volume increases to add to the tension
+*/
 public class Chaser : Agent
 {
     public Runner TargetObject;
@@ -29,7 +34,8 @@ public class Chaser : Agent
 
     /*
      * Prevent chasers all ending up in the same place by creating a unique offset for each one
-     * */
+     * The collider will move them out the way too
+     */
     void CalculateOffset()
     {
         RandomOffset = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
@@ -45,9 +51,9 @@ public class Chaser : Agent
         base.Update();
     }
   
-    /**
+    /*
      * Increase volume as chaser approaches target to create some tension
-     * */
+     */
     void UpdateSound()
     {
         if (sound != null)

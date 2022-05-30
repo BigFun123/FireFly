@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * A background that moves inversely to the mouse, creating the illusion of a bigger playing field
- * */
+/*
+ * A background component that moves inversely to the mouse, creating the illusion of a bigger playing field
+ */
 public class DynamicBackground : MonoBehaviour
 {
     public float Amount = 0.1f;
