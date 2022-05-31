@@ -50,6 +50,7 @@ namespace Assets.Scripts
         protected void LookAtCursor()
         {
             spriteRenderer.flipX = transform.position.x < TargetPosition.x;
+            BroadcastMessage("Flip", spriteRenderer.flipX, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

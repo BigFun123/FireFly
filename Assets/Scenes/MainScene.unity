@@ -443,6 +443,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1780233016733144831, guid: 7edee9c66f0d4ac4981362d84b59e734, type: 3}
   m_PrefabInstance: {fileID: 1780233016638933334}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1425128352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1947312562, guid: bb6375067743c7d41a11a4cad4543169, type: 3}
+  m_PrefabInstance: {fileID: 2061333017922563739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425128355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425128352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbe3ccac8672af48ada7ad25a1708ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  Offset: {x: 0.4, y: -0.3, z: 0}
 --- !u!1 &1462481692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +1022,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2106948819
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106948813}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe5b8ad5da007f1428a05008216aebb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1780233016638933334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1088,11 +1127,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1947312563, guid: bb6375067743c7d41a11a4cad4543169, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.019
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1947312563, guid: bb6375067743c7d41a11a4cad4543169, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.109
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947312564, guid: bb6375067743c7d41a11a4cad4543169, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061333017725150112, guid: bb6375067743c7d41a11a4cad4543169, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2061333017725150113, guid: bb6375067743c7d41a11a4cad4543169, type: 3}
       propertyPath: EatSound

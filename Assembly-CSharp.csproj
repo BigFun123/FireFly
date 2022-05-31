@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Chaser.cs" />
     <Compile Include="Assets\Scripts\DynamicBackground.cs" />
     <Compile Include="Assets\Scripts\FlutterAnimation.cs" />
+    <Compile Include="Assets\Scripts\Glow.cs" />
     <Compile Include="Assets\Scripts\Runner.cs" />
     <Compile Include="Assets\Scripts\GameService.cs" />
     <Compile Include="Assets\Scripts\ScoreHandler.cs" />
